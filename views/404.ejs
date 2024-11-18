@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a href="/" class="btn btn-ghost normal-case text-xl"
+          >Lego Collection</a
+        >
+      </div>
+      <div class="navbar-center flex">
+        <ul class="menu menu-horizontal px-1">
+          <li>
+            <a
+              class="<%= (page == '/lego/sets') ? 'active' : '' %>"
+              href="/lego/sets"
+              >View Collection</a
+            >
+          </li>
+          <li>
+            <a class="<%= (page == '/about') ? 'active' : '' %>" href="/about"
+              >About</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container mx-auto my-10">
+      <div class="hero h-[30vh] bg-blue-500 flex items-center justify-center">
+        <div class="hero-content text-center">
+          <h1 class="text-5xl font-bold text-white">404 - Page Not Found</h1>
+          <p class="text-lg text-white mt-4"><%= message %></p>
+          <a href="/" class="btn btn-primary mt-6">Go Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

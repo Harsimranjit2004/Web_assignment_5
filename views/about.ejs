@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar', { page: '/about' }) %>
+
+    <div class="container mx-auto">
+      <div class="hero h-[30vh] bg-blue-500">
+        <div class="hero-content text-center">
+          <div>
+            <h1 class="text-5xl font-bold">About</h1>
+            <h2>AI & ML Developer</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mt-20">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/63d40fe2cbd65e16cb8098b6/becc30d2-d0b1-4323-84f8-0d7defcc61f3/Screen%2BShot%2B2023-08-17%2Bat%2B3.09.40%2BPM.png"
+          alt="Profile Image"
+        />
+        <div>
+          <p class="text-center text-2xl">
+            Hello! I’m Harsimranjit, a dedicated software developer and data
+            science enthusiast with a strong background in C++ and Python. My
+            interests lie in areas like machine learning, distributed computing,
+            and AI-driven test case automation. Currently, I’m pursuing
+            opportunities to deepen my understanding of advanced C++ and data
+            science concepts, and I'm particularly drawn to projects that
+            combine high-performance computing with real-world data challenges.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

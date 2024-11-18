@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Lego Sets Collection</title>
+  </head>
+  <body class="bg-gray-100">
+    <%- include('partials/navbar', { page: '/lego/sets' }) %>
+
+    <div class="container mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold text-center mb-6">Lego Collection</h1>
+      <header class="hero bg-base-200 text-primary-content py-6">
+        <div class="container mx-auto flex justify-center gap-4">
+          <a
+            href="/lego/sets?theme=Technic"
+            class="btn btn-sm hover:text-gray-400"
+            >Technic</a
+          >
+          <a
+            href="/lego/sets?theme=Classic Town"
+            class="btn btn-sm hover:text-gray-400"
+            >Classic Town</a
+          >
+        </div>
+      </header>
+
+      <!-- Table of Sets -->
+      <div class="overflow-x-auto mt-6">
+        <table class="table w-full table-compact">
+          <thead class="bg-gray-200 text-gray-700 text-left">
+            <tr>
+              <th class="p-2">Image</th>
+              <th class="p-2">Name</th>
+              <th class="p-2">Theme</th>
+              <th class="p-2">Year</th>
+              <th class="p-2">Parts</th>
+              <th class="p-2">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% sets.forEach(set => { %>
+            <tr class="hover:bg-gray-50">
+              <td class="p-2">
+                <img
+                  src="<%= set.img_url %>"
+                  alt="<%= set.name %> image"
+                  class="w-16 h-16 rounded-md object-cover"
+                />
+              </td>
+              <td class="p-2 font-medium text-gray-700"><%= set.name %></td>
+              <td class="p-2">
+                <a
+                  href="/lego/sets?theme=<%= set.Theme.name %>"
+                  class="text-blue-500 hover:underline font-semibold"
+                >
+                  <%= set.Theme.name %>
+                </a>
+              </td>
+              <td class="p-2 text-gray-600"><%= set.year %></td>
+              <td class="p-2 text-gray-600"><%= set.num_parts %></td>
+              <td class="p-2">
+                <a
+                  href="/lego/sets/<%= set.set_num %>"
+                  class="btn btn-sm btn-outline bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                >
+                  Details
+                </a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

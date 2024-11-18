@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('partials/navbar.ejs', { page: '/home' }) %>
+    <div class="container mx-auto">
+      <!-- Hero Section -->
+      <div class="hero h-[30vh] bg-blue-500">
+        <div class="hero-content text-center">
+          <div class="">
+            <h1 class="text-5xl font-bold">Welcome to the Lego Collection</h1>
+            <a href="/lego/sets" class="btn mt-10 btn-primary">Explore Sets</a>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-40 mt-20">
+        <div class="border-2">
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                class="w-full h-96"
+                src="https://cdn.rebrickable.com/media/sets/0015-1.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Space Mini-Figures</h2>
+              <p>Built your own Space Mini-Figures</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">
+                  <a href="/lego/sets/0015-1">Buy Now</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-2">
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                class="w-full h-96"
+                src="https://cdn.rebrickable.com/media/sets/001-1.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Gears</h2>
+              <p>Build awesome mobiles with the lego gears</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">
+                  <a href="/lego/sets/001-1">Buy Now</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-2">
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img
+                class="w-full h-96"
+                src="https://cdn.rebrickable.com/media/sets/0011-3.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Castle 2 for 1 Bonus Offer</h2>
+              <p>Get 2 Castle boxes in price of 1</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">
+                  <a href="/lego/sets/0011-3">Buy Now</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Lego Sets Grid -->
+    </div>
+  </body>
+</html>

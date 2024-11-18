@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lego Set Details</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <!-- Include Navbar -->
+    <%- include('partials/navbar', { page: '' }) %>
+
+    <main class="container mx-auto px-4 py-8">
+      <section
+        class="set-details bg-white rounded-lg shadow-lg p-6 text-center mt-6"
+      >
+        <img
+          src="<%= set.img_url %>"
+          alt="<%= set.name %>"
+          class="w-1/2 mx-auto rounded-lg object-cover shadow-md"
+        />
+        <h2 class="text-3xl font-semibold mt-4 text-blue-600">
+          <%= set.name %>
+        </h2>
+        <p class="text-lg text-gray-700">
+          Year: <span class="font-semibold"><%= set.year %></span>
+        </p>
+        <p class="text-lg text-gray-700">
+          Theme: <span class="font-semibold"><%= set.Theme.name %></span>
+        </p>
+        <p class="text-lg text-gray-700">
+          Parts: <span class="font-semibold"><%= set.num_parts %></span>
+        </p>
+
+        <!-- Edit Button -->
+        <a
+          href="/lego/editSet/<%= set.set_num %>"
+          class="btn btn-success mt-6 inline-block text-white bg-blue-500 hover:bg-blue-700 font-semibold py-2 px-4 rounded"
+        >
+          Edit Set
+        </a>
+      </section>
+    </main>
+  </body>
+</html>

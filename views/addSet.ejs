@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Set</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="max-w-lg mx-auto my-10 p-8 bg-white rounded-lg shadow-lg">
+      <!-- Home Button -->
+      <div class="mb-6 text-center">
+        <a href="/" class="btn btn-primary">Home</a>
+      </div>
+
+      <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">
+        Add Lego Set
+      </h1>
+
+      <form action="/lego/addSet" method="POST" class="space-y-4">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-gray-700">Name</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-gray-700">Year</span>
+          </label>
+          <input
+            type="number"
+            name="year"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-gray-700">Number of Parts</span>
+          </label>
+          <input
+            type="number"
+            name="num_parts"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-gray-700">Image URL</span>
+          </label>
+          <input
+            type="url"
+            name="img_url"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-gray-700">Theme</span>
+          </label>
+          <select
+            name="theme_id"
+            class="select select-bordered w-full"
+            required
+          >
+            <% themes.forEach(theme => { %>
+            <option value="<%= theme.id %>"><%= theme.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-gray-700">Set Number</span>
+          </label>
+          <input
+            type="text"
+            name="set_num"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full mt-4">
+          Add Set
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

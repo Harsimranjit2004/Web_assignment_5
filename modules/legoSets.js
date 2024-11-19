@@ -1,7 +1,6 @@
 require("dotenv").config();
 const Sequelize = require("sequelize");
 
-// Initialize Sequelize with environment variables
 let sequelize = new Sequelize(
   process.env.DB_DATABASE,
   process.env.DB_USER,
@@ -17,7 +16,6 @@ let sequelize = new Sequelize(
   }
 );
 
-// Define the Theme model
 const Theme = sequelize.define(
   "Theme",
   {
@@ -33,7 +31,6 @@ const Theme = sequelize.define(
   { timestamps: false }
 );
 
-// Define the Set model
 const Set = sequelize.define(
   "Set",
   {
@@ -50,22 +47,18 @@ const Set = sequelize.define(
   { timestamps: false }
 );
 
-// Set association
 Set.belongsTo(Theme, { foreignKey: "theme_id" });
 
-// Function to initialize the database (without bulk data insertion)
 function initialize() {
   return sequelize.sync();
 }
 
-// Function to get all sets with themes
 function getAllSets() {
   return Set.findAll({
     include: [Theme],
   });
 }
 
-// Function to get a set by its number
 function getSetByNum(setNum) {
   return Set.findOne({
     where: { set_num: setNum },
@@ -73,7 +66,6 @@ function getSetByNum(setNum) {
   });
 }
 
-// Function to get sets by theme name
 function getSetsByTheme(theme) {
   return Set.findAll({
     include: [
@@ -92,7 +84,6 @@ function getAllThemes() {
   return Theme.findAll();
 }
 
-// Function to add a new set
 function addSet(setData) {
   return Set.create(setData);
 }
@@ -107,7 +98,6 @@ function deleteSet(set_num) {
   });
 }
 
-// Export the functions
 module.exports = {
   initialize,
   getAllSets,

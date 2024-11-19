@@ -1,14 +1,14 @@
 /********************************************************************************
- * WEB322 – Assignment 04
+ * WEB322 – Assignment 05
  *
  * I declare that this assignment is my own work in accordance with Seneca's
  * Academic Integrity Policy:
  *
  * https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
  *
- * Name: Harsimranjit Singh Student ID: 155452220 Date: 4-Nov-2024
+ * Name: Harsimranjit Singh Student ID: 155452220 Date: 17-Nov-2024
  *
- * Published URL: https://lego-sets-a3.vercel.app
+ * Published URL: https://web-assignment-5.vercel.app
  *
  ********************************************************************************/
 
@@ -97,7 +97,6 @@ legoData
       }
     });
 
-    // POST route to add a new set
     app.post("/lego/addSet", async (req, res) => {
       try {
         await legoData.addSet(req.body);
@@ -108,8 +107,8 @@ legoData
     });
     app.get("/lego/editSet/:num", async (req, res) => {
       try {
-        const set = await legoData.getSetByNum(req.params.num); // Fetch set data
-        const themes = await legoData.getAllThemes(); // Fetch all themes
+        const set = await legoData.getSetByNum(req.params.num);
+        const themes = await legoData.getAllThemes();
         res.render("editSet", { set, themes });
       } catch (err) {
         res
@@ -119,16 +118,16 @@ legoData
     });
     app.post("/lego/editSet", async (req, res) => {
       try {
-        await legoData.editSet(req.body.set_num, req.body); // Update set with the form data
-        res.redirect("/lego/sets"); // Redirect to the collection page after update
+        await legoData.editSet(req.body.set_num, req.body);
+        res.redirect("/lego/sets");
       } catch (err) {
         res.render("500", { message: `Error updating set: ${err}`, page: "" });
       }
     });
     app.get("/lego/deleteSet/:num", async (req, res) => {
       try {
-        await legoData.deleteSet(req.params.num); // Call the deleteSet function
-        res.redirect("/lego/sets"); // Redirect to the collection page after deletion
+        await legoData.deleteSet(req.params.num);
+        res.redirect("/lego/sets");
       } catch (err) {
         res.render("500", { message: `Error deleting set: ${err}`, page: "" });
       }
